@@ -1,0 +1,15 @@
+.footer-title{
+    font-weight: 400;
+    font-size: 20px !important;
+    margin-bottom: 20px !important;
+}
+.footer-sub-title{
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    text-decoration: underline;
+}
+.footer-items{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}

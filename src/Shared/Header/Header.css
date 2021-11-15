@@ -1,0 +1,19 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.nav-item{
+    display: flex;
+    gap:30px;
+    align-items: center;
+}
+.nav-item a{
+    color: #013650;
+    font-weight: 600;
+}
+.nav-item a{
+    color: #013650;
+}
+.nav-item a:hover{
+    color: #00cf5d;
+}

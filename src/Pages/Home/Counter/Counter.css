@@ -1,0 +1,21 @@
+.counter-heading{
+    text-align:center;
+    color:#00cf5d;
+    font-size: 40px !important;
+    font-weight: 900 !important;
+}
+
+.counter{
+    width:200px;
+    height:200px;
+    font-size: 40px;
+    font-weight: 500;
+    color:#013650;
+    padding: 30px 15px;
+}
+.counter-title{
+    font-size: 25px !important;
+    font-weight: 700 !important;
+    color:#013650;
+    padding-top:10px;
+}
