@@ -5,7 +5,7 @@ import React from 'react';
 const useFirebase = () => {
     return (
         <div>
-            
+            use firebase
         </div>
     );
 };
