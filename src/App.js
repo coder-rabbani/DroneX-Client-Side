@@ -14,6 +14,7 @@ import SingleService from './Pages/SingleService/SingleService';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 // green: #00cf5d
 // body: #111A28
@@ -22,6 +23,7 @@ import NotFound from './Pages/NotFound/NotFound';
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
         <Router>
           <Header />
             <Switch>
@@ -52,6 +54,7 @@ function App() {
             </Switch>
             <Footer/>
         </Router> 
+      </AuthProvider>  
     </div>
   );
 }

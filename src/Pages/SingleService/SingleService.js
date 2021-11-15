@@ -9,7 +9,7 @@ const SingleService = () => {
     const {id} = useParams();
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/allProducts/${id}`)
+        axios.get(`https://drone-server-bd.herokuapp.com/allProducts/${id}`)
         .then(res=>setProduct(res.data))
     }, []);
 

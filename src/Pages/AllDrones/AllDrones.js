@@ -6,7 +6,7 @@ import Product from '../Home/Product/Product';
 const AllDrones = () => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        axios.get('http://localhost:5000/allProducts')
+        axios.get('https://drone-server-bd.herokuapp.com/allProducts')
         .then(res=>setProducts(res.data))
     },[]);
     return (

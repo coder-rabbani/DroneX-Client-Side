@@ -7,7 +7,7 @@ const axios = require('axios');
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(()=>{
-        axios.get('http://localhost:5000/allReviews')
+        axios.get('https://drone-server-bd.herokuapp.com/allReviews')
         .then(res=>setReviews(res.data))
     },[]);
     return (

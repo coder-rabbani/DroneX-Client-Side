@@ -7,7 +7,7 @@ const axios = require('axios');
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        axios.get('http://localhost:5000/homeProducts')
+        axios.get('https://drone-server-bd.herokuapp.com/homeProducts')
         .then(res=>setProducts(res.data))
     },[]);
     return (
