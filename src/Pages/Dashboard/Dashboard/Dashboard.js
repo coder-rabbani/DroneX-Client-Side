@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom';
 
 import {
   Switch,
-  Route,
   useRouteMatch
 } from "react-router-dom";
 import DashboardHome from '../DashboardHome/DashboardHome';
@@ -24,14 +23,17 @@ import Pay from '../Pay/Pay';
 import MyOrders from '../MyOrders/MyOrders';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import useAuth from '../../../hooks/useAuth';
+import PrivateRoute from '../../Login/PrivateRoute/PrivateRoute';
+import './Dashboard.css'
 
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  
+  const {admin, logOut} = useAuth();
   let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
@@ -42,22 +44,30 @@ function Dashboard(props) {
     <div>
       <Toolbar />
       <Divider />
-      <Link style={{textDecoration:"none"}} to={`${url}/addProduct`}><Button color="inherit">Add Product</Button></Link>
-      <br/>
-      <Link style={{textDecoration:"none"}} to={`${url}/addReview`}><Button color="inherit">Add Review</Button></Link>
-      <br/>
-      <Link style={{textDecoration:"none"}} to={`${url}/myOrders`}><Button color="inherit">My Orders</Button></Link>
-      <br/>
-      <Link style={{textDecoration:"none"}} to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-      <br/>
-      <Link style={{textDecoration:"none"}} to={`${url}/manageOrders`}><Button color="inherit">Manage all Orders</Button></Link>
-      <br/>
-      <Link style={{textDecoration:"none"}} to={`${url}/manageProducts`}><Button color="inherit">Manage Products</Button></Link>
-      <br/>
-      <Link style={{textDecoration:"none"}} to={`${url}/pay`}><Button color="inherit">Pay Now</Button></Link>
-      <br/>
-      <Link style={{textDecoration:"none"}} to={`${url}/dashboard`}><Button color="inherit">Dashboard</Button></Link>
 
+      {admin && <Box>
+      <Link className="dasboard-nav-item" to={`${url}/manageOrders`}><Button color="inherit">Manage all Orders</Button></Link>
+      <br/>
+      <Link className="dasboard-nav-item" to={`${url}/manageProducts`}><Button color="inherit">Manage Products</Button></Link>
+      <br/>
+      <Link className="dasboard-nav-item" to={`${url}/addProduct`}><Button color="inherit">Add Product</Button></Link>
+      <br/>
+      <Link className="dasboard-nav-item" to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
+      </Box>
+        }
+
+      {!admin && <Box>
+        <Link className="dasboard-nav-item" to={`${url}/myOrders`}><Button color="inherit">My Orders</Button></Link>
+        <br/>
+        
+        <Link className="dasboard-nav-item" to={`${url}/addReview`}><Button color="inherit">Add Review</Button></Link>
+        <br/>
+        <Link className="dasboard-nav-item" to={`${url}/pay`}><Button color="inherit">Pay Now</Button></Link>
+        
+      </Box>
+        }
+      <Link style={{textDecoration:"none", marginBottom:"10px", display:"inline-block"}} to='/'><Button className="my-btn" color="inherit">Back To Home</Button></Link>
+      <Button style={{width:"57%"}} onClick={logOut} variant="contained" color="primary">Logout</Button>
     </div>
   );
 
@@ -125,30 +135,30 @@ function Dashboard(props) {
       >
         <Toolbar />
         <Switch>
-          <Route exact path={path}>
+          <PrivateRoute exact path={path}>
             <DashboardHome></DashboardHome>
-          </Route>
-          <Route path={`${path}/makeAdmin`}>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
-          </Route>
-          <Route path={`${path}/addProduct`}>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/addProduct`}>
             <AddProduct></AddProduct>
-          </Route>
-          <Route path={`${path}/addReview`}>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/addReview`}>
             <AddReview></AddReview>
-          </Route>
-          <Route path={`${path}/pay`}>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/pay`}>
             <Pay></Pay>
-          </Route>
-          <Route path={`${path}/myOrders`}>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/myOrders`}>
             <MyOrders></MyOrders>
-          </Route>
-          <Route path={`${path}/manageOrders`}>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/manageOrders`}>
             <ManageAllOrders></ManageAllOrders>
-          </Route>
-          <Route path={`${path}/manageProducts`}>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/manageProducts`}>
             <ManageProducts></ManageProducts>
-          </Route>
+          </PrivateRoute>
       </Switch> 
       </Box>
     </Box>

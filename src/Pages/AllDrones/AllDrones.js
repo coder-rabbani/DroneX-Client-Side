@@ -1,6 +1,8 @@
 import { Container, Grid, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 import Product from '../Home/Product/Product';
 
 const AllDrones = () => {
@@ -10,6 +12,8 @@ const AllDrones = () => {
         .then(res=>setProducts(res.data))
     },[]);
     return (
+        <>
+        <Header />
         <Container sx={{py:10}}>
             <Typography variant="h4" style={{textAlign:"center", color:"#00cf5d"}}>Our Drones</Typography>
             <Typography variant="body1" style={{textAlign:"center", maxWidth:"600px", margin:"auto"}}> Pick of the finest drones for aerial photography and filmmaking, based on our rigorous testing.</Typography>
@@ -22,6 +26,8 @@ const AllDrones = () => {
                 }
             </Grid>
         </Container>
+        <Footer/>
+        </>
     );
 };
 

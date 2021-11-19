@@ -1,9 +1,9 @@
 .input-field{
-    width: 96%;
+    width: 100%;
     padding: 10px 10px;
     margin: 10px 0;
 }
 .input-field.my-btn{
     padding: 10px;
-    width: 100%;
+    width: 106%;
 }

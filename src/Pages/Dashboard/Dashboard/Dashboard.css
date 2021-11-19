@@ -1,0 +1,11 @@
+.dasboard-nav-item{
+    color:#013650 !important;
+    text-decoration: none;
+}
+a.dasboard-nav-item {
+    font-size: 22px !important;
+}
+.dasboard-nav-item:hover{
+    color:#00cf5d;
+}
+    

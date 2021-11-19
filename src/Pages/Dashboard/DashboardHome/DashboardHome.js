@@ -1,10 +1,12 @@
+import { Container } from '@mui/material';
 import React from 'react';
+import welcome from '../../../images/welcome.svg';
 
 const DashboardHome = () => {
     return (
-        <div>
-            Welcome To dashboard
-        </div>
+        <Container>
+            <img src={welcome} alt="" />
+        </Container>
     );
 };
 

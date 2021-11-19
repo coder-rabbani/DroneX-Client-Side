@@ -1,7 +1,5 @@
 import './App.css';
 import Home from './Pages/Home/Home/Home';
-import Footer from './Shared/Footer/Footer';
-import Header from './Shared/Header/Header';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,6 +13,7 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 // green: #00cf5d
 // body: #111A28
@@ -25,7 +24,6 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
-          <Header />
             <Switch>
               <Route exact path="/">
                 <Home></Home>
@@ -36,9 +34,9 @@ function App() {
               <Route  path='/all-drones'>
                 <AllDrones></AllDrones>
               </Route>
-              <Route path="/allProducts/:id">
+              <PrivateRoute path="/allProducts/:id">
                 <SingleService></SingleService>
-              </Route>
+              </PrivateRoute>
               <Route path="/login">
                 <Login></Login>
               </Route>
@@ -52,7 +50,6 @@ function App() {
                 <NotFound></NotFound>
               </Route>
             </Switch>
-            <Footer/>
         </Router> 
       </AuthProvider>  
     </div>
